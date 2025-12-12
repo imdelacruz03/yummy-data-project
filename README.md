@@ -23,12 +23,14 @@ The ratings dataset required:
     - Fall: Sep, Oct, Nov
 
 Below is a sample of the cleaned ratings dataset:
+```
 recipe_id   rating   date          season
 40893       5        2011-12-21    Winter
 85009       5        2010-02-27    Winter
 85009       5        2011-10-01    Fall
 120345      2        2011-08-06    Summer
 120345      2        2015-05-10    Spring
+```
 
 # Distribution of Recipe Ratings
 <iframe src="assets/rating_hist.html" width="800" height="600" frameborder="0"></iframe>
@@ -40,7 +42,7 @@ Most ratings cluster around 4–5 stars, showing a strong positive skew typical 
 
 Cook times, on a log scale, form a unimodal distribution. Most recipes take between 10 and 100 minutes, but there is a long tail of very long recipes. This motivates comparing the ratings of “short” and “long” recipes.
 
-#Average Rating by Season Submitted
+# Average Rating by Season Submitted
 <iframe src="assets/season_bar.html" width="800" height="600" frameborder="0"></iframe>
 
 Average ratings vary slightly across seasons. Spring and Summer recipes have the highest average ratings, while Winter and Fall recipes are slightly lower. The differences are small, suggesting seasonality has limited impact but is worth investigating.
@@ -53,7 +55,17 @@ I divide recipes into two groups based on the median cook time. Short recipes sh
 # Interesting Aggregates
 Below is a grouped table showing average rating and number of ratings by season and cook-time group:
 
-(Insert your Markdown table from agg_table.to_markdown() here.)
+| season | cook_group | avg_rating | num_ratings |
+|--------|------------|------------|-------------|
+| Fall   | long       | 4.2869996  | 27453       |
+| Fall   | short      | 4.4319321  | 26738       |
+| Spring | long       | 4.3425963  | 30012       |
+| Spring | short      | 4.4537915  | 33641       |
+| Summer | long       | 4.3621699  | 26968       |
+| Summer | short      | 4.4904724  | 35056       |
+| Winter | long       | 4.2553680  | 27384       |
+| Winter | short      | 4.3711405  | 27173       |
+
 
 Across all seasons, short recipes consistently receive slightly higher ratings than long recipes. Short Summer recipes, in particular, show the highest average rating and highest engagement. This supports the hypothesis that both season and cook time may relate to user ratings.
 
@@ -158,20 +170,3 @@ Conclusion: There is no statistically significant evidence that the model is unf
 
 # Final Thoughts
 This project demonstrates how exploratory analysis, statistical inference, and machine learning can be combined to understand rating behavior. While some factors show small differences, predicting recipe quality remains challenging, and user behavior introduces complexity beyond the observable features.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
